@@ -1,0 +1,77 @@
+<!-- WE CODE - PRO CALCULATOR BUTTON + MODAL v2.0 -->
+<section id="proCalcBtn" style="max-width:1100px; margin:50px auto; padding:0 20px; font-family:'Segoe UI', sans-serif;">
+  <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border:1px solid #334155; border-radius:20px; padding:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px;">
+    <div>
+      <div style="display:inline-block; background:#1e293b; border:1px solid #334155; padding:5px 12px; border-radius:20px; color:#38bdf8; font-size:10px; font-weight:700; letter-spacing:1px;">WE CODE • TOOL</div>
+      <h3 style="color:#f1f5f9; margin:8px 0 4px 0; font-size:20px; font-weight:800;">Pro Calculator</h3>
+      <p style="color:#64748b; margin:0; font-size:12px;">Enterprise-grade • Keyboard support • History log</p>
+    </div>
+    <button onclick="openCalcModal()" style="background:#38bdf8; color:#020617; border:0; padding:14px 28px; border-radius:12px; font-weight:800; font-size:14px; cursor:pointer; box-shadow:0 4px 15px rgba(56,189,248,0.3);">
+      🧮 Open Calculator
+    </button>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div id="calcModal" style="display:none; position:fixed; inset:0; background:rgba(2,6,23,0.85); backdrop-filter:blur(8px); z-index:9999; justify-content:center; align-items:center; padding:20px;">
+  <div style="background: linear-gradient(135deg, #0f172a, #1e293b); border:1px solid #334155; border-radius:24px; width:100%; max-width:420px; padding:20px; position:relative;">
+    <button onclick="closeCalcModal()" style="position:absolute; top:15px; right:15px; background:#1e293b; border:1px solid #334155; color:#94a3b8; width:32px; height:32px; border-radius:50%; cursor:pointer; font-weight:700;">✕</button>
+    
+    <div style="margin-bottom:15px;">
+      <div style="color:#38bdf8; font-size:10px; font-weight:700; letter-spacing:1px;">WE CODE • PRO CALC</div>
+      <div style="color:#64748b; font-size:11px;">Press ESC to close • Enter to calculate</div>
+    </div>
+
+    <div id="calcDisplayM" style="background:#020617; border:1px solid #1e293b; border-radius:14px; padding:18px; text-align:right; margin-bottom:16px; min-height:70px;">
+      <div id="calcHistoryM" style="color:#64748b; font-size:13px; min-height:18px; word-break:break-all;">0</div>
+      <div id="calcResultM" style="color:#f1f5f9; font-size:34px; font-weight:700; margin-top:4px; word-break:break-all;">0</div>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:10px;">
+      <button onclick="calcM('C')" style="background:#1e293b; color:#f87171; border:1px solid #334155; padding:16px; border-radius:12px; font-weight:700; cursor:pointer;">C</button>
+      <button onclick="calcM('(')" style="background:#0f172a; color:#94a3b8; border:1px solid #1e293b; padding:16px; border-radius:12px; cursor:pointer;">(</button>
+      <button onclick="calcM(')')" style="background:#0f172a; color:#94a3b8; border:1px solid #1e293b; padding:16px; border-radius:12px; cursor:pointer;">)</button>
+      <button onclick="calcM('/')" style="background:#1e293b; color:#38bdf8; border:1px solid #334155; padding:16px; border-radius:12px; font-weight:700; cursor:pointer;">÷</button>
+      <button onclick="calcM('7')" style="background:#0f172a; color:#e2e8f0; border:1px solid #1e293b; padding:16px; border-radius:12px; cursor:pointer;">7</button>
+      <button onclick="calcM('8')" style="background:#0f172a; color:#e2e8f0; border:1px solid #1e293b; padding:16px; border-radius:12px; cursor:pointer;">8</button>
+      <button onclick="calcM('9')" style="background:#0f172a; color:#e2e8f0; border:1px solid #1e293b; padding:16px; border-radius:12px; cursor:pointer;">9</button>
+      <button onclick="calcM('*')" style="background:#1e293b; color:#38bdf8; border:1px solid #334155; padding:16px; border-radius:12px; cursor:pointer;">×</button>
+      <button onclick="calcM('4')" style="background:#0f172a; color:#e2e8f0; border:1px solid #1e293b; padding:16px; border-radius:12px; cursor:pointer;">4</button>
+      <button onclick="calcM('5')" style="background:#0f172a; color:#e2e8f0; border:1px solid #1e293b; padding:16px; border-radius:12px; cursor:pointer;">5</button>
+      <button onclick="calcM('6')" style="background:#0f172a; color:#e2e8f0; border:1px solid #1e293b; padding:16px; border-radius:12px; cursor:pointer;">6</button>
+      <button onclick="calcM('-')" style="background:#1e293b; color:#38bdf8; border:1px solid #334155; padding:16px; border-radius:12px; cursor:pointer;">−</button>
+      <button onclick="calcM('1')" style="background:#0f172a; color:#e2e8f0; border:1px solid #1e293b; padding:16px; border-radius:12px; cursor:pointer;">1</button>
+      <button onclick="calcM('2')" style="background:#0f172a; color:#e2e8f0; border:1px solid #1e293b; padding:16px; border-radius:12px; cursor:pointer;">2</button>
+      <button onclick="calcM('3')" style="background:#0f172a; color:#e2e8f0; border:1px solid #1e293b; padding:16px; border-radius:12px; cursor:pointer;">3</button>
+      <button onclick="calcM('+')" style="background:#1e293b; color:#38bdf8; border:1px solid #334155; padding:16px; border-radius:12px; cursor:pointer;">+</button>
+      <button onclick="calcM('0')" style="background:#0f172a; color:#e2e8f0; border:1px solid #1e293b; padding:16px; border-radius:12px; cursor:pointer; grid-column: span 2;">0</button>
+      <button onclick="calcM('.')" style="background:#0f172a; color:#e2e8f0; border:1px solid #1e293b; padding:16px; border-radius:12px; cursor:pointer;">.</button>
+      <button onclick="calcEqM()" style="background:#38bdf8; color:#020617; border:0; padding:16px; border-radius:12px; font-weight:800; cursor:pointer;">=</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let exprM="";
+function openCalcModal(){ document.getElementById('calcModal').style.display='flex'; }
+function closeCalcModal(){ document.getElementById('calcModal').style.display='none'; }
+function calcM(v){
+  const r=document.getElementById('calcResultM'), h=document.getElementById('calcHistoryM');
+  if(v==='C'){ exprM=""; r.innerText="0"; h.innerText="0"; return; }
+  exprM+=v; h.innerText=exprM;
+  try{ let p=Function('"use strict";return ('+exprM+')')(); if(!isNaN(p)) r.innerText=p; }catch(e){}
+}
+function calcEqM(){
+  const r=document.getElementById('calcResultM');
+  try{ let res=Function('"use strict";return ('+exprM+')')(); r.innerText=res; exprM=String(res); }catch(e){ r.innerText="Error"; }
+}
+document.addEventListener('keydown', (e)=>{
+  if(document.getElementById('calcModal').style.display==='flex'){
+    if(e.key==='Escape') closeCalcModal();
+    if(e.key==='Enter') calcEqM();
+    if(/[0-9+\-*/().]/.test(e.key)) calcM(e.key);
+    if(e.key==='Backspace'){ exprM=exprM.slice(0,-1); document.getElementById('calcHistoryM').innerText=exprM||'0'; }
+  }
+});
+document.getElementById('calcModal').addEventListener('click', (e)=>{ if(e.target.id==='calcModal') closeCalcModal(); });
+</script>
